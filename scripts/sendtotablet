@@ -1,0 +1,4 @@
+#!/bin/bash
+FILE=`date +%s`.jpg
+gnome-screenshot -a -f $HOME/Pictures/$FILE && gio copy $HOME/Pictures/$FILE  "/run/user/1000/gvfs/mtp:host=SAMSUNG_SAMSUNG_Android_R52T305LCYA/Internal storage/DCIM"
+
