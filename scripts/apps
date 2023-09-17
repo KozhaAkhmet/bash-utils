@@ -1,0 +1,39 @@
+#!/bin/bash
+
+sudo apt update && sudo apt upgrade
+
+sudo apt install\
+ terminator\
+ docker\
+ docker.io\
+ discord\
+ thunar\
+ code\
+ wget\
+ nano\
+ rpi-imager\
+ gnome-screenshot\
+&&\
+flatpak install steam zoom wine
+
+sudo groupadd docker
+sudo usermod -aG docker $USER
+
+# For Nvidia
+sudo apt-get install -y nvidia-container-toolkit
+sudo apt install -y nvidia-docker2
+sudo systemctl restart docker
+
+# Installing Cura Slicer
+cd ~/Documents/
+wget https://github.com/Ultimaker/Cura/releases/download/5.3.1/UltiMaker-Cura-5.3.1-linux.AppImage | chmod +x
+cd
+
+# Installing Raspberri Pi Pico SDK 
+cd ~/Documents/
+wget https://raw.githubusercontent.com/raspberrypi/pico-setup/master/pico_setup.sh
+chmod +x pico_setup.sh
+./pico_setup.sh
+cd
+
+# 
